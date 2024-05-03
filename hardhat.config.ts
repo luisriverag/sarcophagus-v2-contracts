@@ -90,6 +90,13 @@ const config: HardhatUserConfig = {
         ? [process.env.ARBITRUM_DEPLOYER_PRIVATE_KEY]
         : [],
     },
+    base: {
+      chainId: 8453,
+      url: process.env.BASE_PROVIDER || "",
+      accounts: process.env.BASE_DEPLOYER_PRIVATE_KEY
+        ? [process.env.BASE_DEPLOYER_PRIVATE_KEY]
+        : [],
+    },
     polygon: {
       chainId: 137,
       url: process.env.POLYGON_PROVIDER || "",
@@ -132,6 +139,7 @@ const config: HardhatUserConfig = {
       polygonMumbai: process.env.POLYGONSCAN_API_KEY || "",
       sepolia: process.env.ETHERSCAN_API_KEY || "",
       arbitrumOne: process.env.ARBISCAN_API_KEY || "",
+      base: process.env.BASESCAN_API_KEY || "",
     },
     customChains: [
       {
@@ -146,7 +154,7 @@ const config: HardhatUserConfig = {
         network: "base",
         chainId: 8453,
         urls: {
-          apiURL: "https://api.basescan.org/",
+          apiURL: "https://api.basescan.org/api",
           browserURL: "https://basescan.org/",
         },
       },
